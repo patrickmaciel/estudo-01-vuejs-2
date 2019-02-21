@@ -6,18 +6,28 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laracasts - Learn Vue.js 2</title>
+    <script src="vue.js"></script>
 </head>
 <body>
-<input type="text" id="input">
+<div id="root">
+    <input type="text" id="input" v-model="message">
+
+    <p>The value of the input is {{ message }}</p>
+</div>
 
 <script>
-    let data = {
-        message: 'Hello World'
-    };
+    // let data = {
+    //     message: 'Hello World'
+    // };
 
-    document.querySelector('#input').value = data.message;
+    new Vue({
+        el: '#root',
+        data: {
+          message: 'Hello World'
+        },
+    });
+
+    // document.querySelector('#input').value = data.message;
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </body>
 </html>
