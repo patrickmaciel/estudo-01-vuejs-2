@@ -14,30 +14,28 @@
         <li v-for="name in names" v-text="name"></li>
     </ul>
 
-    <input type="text" id="input">
-    <button id="button">Add Name</button>
+    <input type="text" id="input" v-model="newName">
+    <button @click="addName">Add Name</button>
 </div>
 
 <script>
     var app = new Vue({
         el: '#root',
         data: {
-            names: ['Joe', 'Mary', 'Jane', 'Jack']
+            names: ['Joe', 'Mary', 'Jane', 'Jack'],
+            newName: ''
         },
         mounted() { // once everything is ready to go
-
+        },
+        methods: {
+            // addName: function() {} old way
+            // es2015 way
+            addName() {
+                this.names.push(this.newName);
+                this.newName = '';
+            }
         }
     });
-
-    // native way
-    document.querySelector('#button').addEventListener(
-        'click', () => {
-            let name = document.querySelector('#input');
-            app.names.push(name.value);
-            name.value = '';
-        });
-
-    // document.querySelector('#input').value = data.message;
 </script>
 </body>
 </html>
