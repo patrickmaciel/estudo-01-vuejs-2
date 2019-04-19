@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Laracasts - Learn Vue.js 2</title>
+    <script src="vue.js"></script>
+
+    <style>
+        .color-red { color: red; }
+        .color-blue { color: blue; }
+        .is-loading { background: red; }
+    </style>
+</head>
+<body>
+<div id="root">
+    <h1 v-text="new Date()"></h1>
+    <h1>{{ reverseMessage }}</h1>
+
+    <h2>All tasks</h2>
+    <ul>
+        <li v-for="task in tasks" v-text="task.description"></li>
+    </ul>
+
+    <h2>Completed</h2>
+    <ul>
+        <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li>
+    </ul>
+
+    <h2>Incompleted</h2>
+    <ul>
+        <li v-for="task in incompletedTasks" v-text="task.description"></li>
+    </ul>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#root',
+        data: {
+            message: 'Opa e ai?',
+            tasks: [
+                { description: 'Compra água', completed: false },
+                { description: 'Bebe água', completed: true },
+                { description: 'Cadê a água?', completed: true },
+                { description: 'Comprou a garrafinha?', completed: false },
+                { description: 'Encheu ela?', completed: true },
+            ]
+        },
+        methods: {
+
+        },
+        computed: {
+            reverseMessage() {
+                return this.message.split('').reverse().join('');
+            },
+            incompletedTasks() {
+                return this.tasks.filter(task => !task.completed);
+                /* OLD WAY
+                return this.tasks.filter(function (task) {
+                    return !task.completed;
+                });
+                 */
+            }
+        }
+    });
+</script>
+</body>
+</html>
