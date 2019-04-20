@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Laracasts - Learn Vue.js 2</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="vue.js"></script>
+
+    <style>
+        body {
+            padding: 40px 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="root" class="contai ner">
+    <bu-modal v-if="showModal" @close="showModal = false">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta distinctio dolor dolore et eum harum
+            impedit in ipsum labore minus molestias natus nisi, optio perferendis quis sint temporibus vitae.</p>
+        <p>Assumenda aut consequatur cumque doloremque enim est iure possimus qui quos repellat. Accusantium consectetur
+            eaque hic magni omnis, quos voluptates. Accusantium consectetur consequatur, maxime nulla numquam optio sed
+            ut vitae.</p>
+    </bu-modal>
+
+    <button type="button" @click="showModal = true">Mostra Modal</button>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

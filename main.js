@@ -1,3 +1,15 @@
+Vue.component('bu-modal', {
+    props: ['content'],
+    template: `
+    <div class="modal is-active">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+         <div class="box"><slot></slot></div>
+      </div>
+      <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
+    </div>    
+    `
+});
 Vue.component('md-card', {
     props: ['title', 'body', 'button'],
     data() {
@@ -39,18 +51,21 @@ Vue.component('task-list', {
     data() {
         return {
             tasks: [
-                { name: 'Jesus', completed: false },
-                { name: 'te', completed: true },
-                { name: 'ama!', completed: false },
+                {name: 'Jesus', completed: false},
+                {name: 'te', completed: true},
+                {name: 'ama!', completed: false},
             ]
         }
     }
 });
 
 Vue.component('task', {
-   template: '<li><slot></slot></li>'
+    template: '<li><slot></slot></li>'
 });
 
 new Vue({
-   el: '#root'
+    el: '#root',
+    data: {
+        showModal: false
+    }
 });
